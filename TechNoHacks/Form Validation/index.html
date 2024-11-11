@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation</title>
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+<div class="container">
+    <form onsubmit="return validateForm()">
+        <h1>LOGIN FORM</h1>
+        <p>Validation using JavaScript</p>
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name"><br>
+        <span id="nameError" class="error"></span>
+        <br><br>
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email"><br>
+        <span id="emailError" class="error"></span>
+        <br><br>
+
+        <label for="phone">Phone Number</label>
+        <input type="text" id="phone" name="phone"><br>
+        <span id="phoneError" class="error"></span>
+        <br>
+        <button  class="sumbit">Submit</button>
+    </form>
+</div>
+    <script>
+        function validateForm() {
+            let name = document.getElementById("name").value;
+            let email = document.getElementById("email").value;
+            let phone = document.getElementById("phone").value;
+            let valid = true;
+
+            document.getElementById("nameError").innerHTML = "";
+            document.getElementById("emailError").innerHTML = "";
+            document.getElementById("phoneError").innerHTML = "";
+            
+
+
+            // Validate name
+            if (name === "") {
+                document.getElementById("nameError").innerHTML = "Name is required!!";
+                valid = false;
+            }
+
+            // Validate email
+            if (email === "") {
+                document.getElementById("emailError").innerHTML = "Email is required!!";
+                valid = false;
+            } 
+
+            if (phone === "") {
+                document.getElementById("phoneError").innerHTML = "Phone number is required!!";
+                valid = false;
+            }
+            return valid;
+            
+        }
+    </script>
+</body>
+</html>
